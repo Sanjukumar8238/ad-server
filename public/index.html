@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Triangular Prism Ad Format</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .scene {
+            width: 300px;
+            height: 250px;
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 300px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            animation: rotateCube 10s infinite linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+        }
+
+        /* First face */
+        .cube-face:nth-child(1) { 
+            transform: rotateY(0deg) translateZ(87px); /* Positioned 150px outward on Z-axis */
+        }
+
+        /* Second face */
+        .cube-face:nth-child(2) { 
+            transform: rotateY(120deg) translateZ(87px); /* Positioned 150px outward on Z-axis */
+        }
+
+        /* Third face */
+        .cube-face:nth-child(3) { 
+            transform: rotateY(240deg) translateZ(87px); /* Positioned 150px outward on Z-axis */
+        }
+
+        @keyframes rotateCube {
+            0% {
+                transform: rotateY(0deg);
+            }
+            33% {
+                transform: rotateY(120deg);
+            }
+            66% {
+                transform: rotateY(240deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <div class="cube">
+            <!-- First face with ad unit -->
+            <div class="cube-face" id="div-gpt-ad-1726590972106-0"></div>
+            
+            <!-- Second face with ad unit -->
+            <div class="cube-face" id="div-gpt-ad-1726591083059-0"></div>
+            
+            <!-- Third face with ad unit -->
+            <div class="cube-face" id="div-gpt-ad-1726591131922-0"></div>
+        </div>
+    </div>
+
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+        window.googletag = window.googletag || { cmd: [] };
+
+        googletag.cmd.push(function() {
+            // Define ad slots for each face
+            googletag.defineSlot('/23200390873/300x250_1', [300, 50], 'div-gpt-ad-1726590972106-0').addService(googletag.pubads());
+            googletag.defineSlot('/23200390873/300x250_2', [300, 50], 'div-gpt-ad-1726591083059-0').addService(googletag.pubads());
+            googletag.defineSlot('/23200390873/300x250_3', [300, 50], 'div-gpt-ad-1726591131922-0').addService(googletag.pubads());
+
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+
+            // Display the ads
+            googletag.display('div-gpt-ad-1726590972106-0');
+            googletag.display('div-gpt-ad-1726591083059-0');
+            googletag.display('div-gpt-ad-1726591131922-0');
+        });
+    </script>
+
+</body>
+</html>
